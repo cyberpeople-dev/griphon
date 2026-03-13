@@ -1,0 +1,50 @@
+# WordPress API Stress Test Configuration
+user_agents:
+  - "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  - "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  - "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0"
+  - "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+endpoints:
+  - path: "wp-json/wp/v2/posts"
+  - path: "wp-json/wp/v2/users"
+  - path: "wp-json/wp/v2/comments"
+  - path: "wp-json"
+  - path: "wp-admin"
+  - path: "wp-login.php"
+  - path: "xmlrpc.php"
+  - path: "wp-includes"
+  - path: "wp-content"
+  - path: "wp-json/wp/v2/pages"
+  - path: "wp-json/wp/v2/categories"
+  - path: "wp-json/wp/v2/tags"
+  - path: "wp-json/wp/v2/media"
+  - path: "wp-cron.php"
+  - path: "wp-links-opml.php"
+payloads:
+  - name: "auth_test"
+    data:
+      username: "admin"
+      password: "admin123"
+  - name: "post_test_bulk"
+    data:
+      title: "Test Post"
+      content: "Test Content"
+      status: "publish"
+  - name: "post_test_draft"
+    data:
+      title: "Draft"
+      content: "Content"
+      status: "draft"
+  - name: "test_comment"
+    data:
+      author_name: "TestUser"
+      author_email: "user@example.com"
+      content: "Test Comment"
+  - name: "search_test"
+    data:
+      s: "test_search"
+  - name: "user_registration"
+    data:
+      username: "testuser"
+      password: "testpassword"
+      email: "test@example.com" 
